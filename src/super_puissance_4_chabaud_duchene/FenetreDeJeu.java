@@ -41,15 +41,15 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         panneau_creation_partie.setBackground(new java.awt.Color(255, 255, 204));
         panneau_creation_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 210, 190));
+        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 240, 190));
 
         panneau_infos_joueurs.setBackground(new java.awt.Color(255, 255, 204));
         panneau_infos_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 220, -1, 180));
+        getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 240, 190));
 
         panneau_infos_partie.setBackground(new java.awt.Color(255, 255, 204));
         panneau_infos_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panneau_infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, -1, 180));
+        getContentPane().add(panneau_infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 240, 190));
 
         setBounds(0, 0, 1046, 704);
     }// </editor-fold>//GEN-END:initComponents
