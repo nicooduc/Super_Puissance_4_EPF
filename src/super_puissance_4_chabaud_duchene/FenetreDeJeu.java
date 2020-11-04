@@ -22,10 +22,10 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         panneau_infos_joueurs.setVisible(false);
         panneau_infos_partie.setVisible(false);
-
+        
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; i++) {
-                CelluleGraphique cellGraph = new CelluleGraphique();
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.cellule[i][j]);
                 panneau_grille.add(cellGraph);
             }
 
