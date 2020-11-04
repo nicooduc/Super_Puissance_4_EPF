@@ -11,11 +11,25 @@ package super_puissance_4_chabaud_duchene;
  */
 public class FenetreDeJeu extends javax.swing.JFrame {
 
+    Joueur ListeJoueurs[] = new Joueur[2];
+    Joueur JoueurCourant;
+    Grille grilleJeu = new Grille();
+
     /**
      * Creates new form FenetreDeJeu
      */
     public FenetreDeJeu() {
         initComponents();
+        panneau_infos_joueurs.setVisible(false);
+        panneau_infos_partie.setVisible(false);
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; i++) {
+                CelluleGraphique cellGraph = new CelluleGraphique();
+                panneau_grille.add(cellGraph);
+            }
+
+        }
     }
 
     /**
@@ -88,6 +102,11 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_creation_partie.add(nom_joueur_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 110, -1));
 
         btn_start.setText("Démarer partie");
+        btn_start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_startActionPerformed(evt);
+            }
+        });
         panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 113, 130, 50));
 
         getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 240, 190));
@@ -224,6 +243,11 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_3ActionPerformed
+
+    private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
+        panneau_infos_joueurs.setVisible(true);
+        panneau_infos_partie.setVisible(true);
+    }//GEN-LAST:event_btn_startActionPerformed
 
     /**
      * @param args the command line arguments
