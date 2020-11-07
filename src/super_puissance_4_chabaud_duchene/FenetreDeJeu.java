@@ -28,7 +28,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.cellule[i][j]);
                 panneau_grille.add(cellGraph);
             }
-
+            
         }
     }
 
