@@ -5,6 +5,8 @@
  */
 package super_puissance_4_chabaud_duchene;
 
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -13,8 +15,19 @@ import javax.swing.JButton;
  */
 public class CelluleGraphique extends JButton {
     Cellule celluleAssociee;
+    ImageIcon img_vide = new javax.swing.ImageIcon (getClass().getResource("/images/celluleVide.png"));
     
     public CelluleGraphique(Cellule cellule) {
         celluleAssociee = cellule;
     }
+
+
+
+
+    @Override
+
+    public void paintComponent (Graphics G){
+        super.paintComponent(G);
+        setIcon(img_vide); //l'image vide est l'image de défault
+}
 }
