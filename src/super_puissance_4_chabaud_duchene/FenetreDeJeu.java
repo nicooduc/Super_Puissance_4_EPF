@@ -24,7 +24,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_infos_partie.setVisible(false);
         
         for (int i = 5; i >= 0; i--) {
-            for (int j = 0; j < 7; i++) {
+            for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.cellule[i][j]);
                 panneau_grille.add(cellGraph);
             }
@@ -88,10 +88,10 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_creation_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nom Joueur 2 :");
-        panneau_creation_partie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        panneau_creation_partie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 76, 100, 20));
 
         jLabel2.setText("Nom Joueur 1 :");
-        panneau_creation_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        panneau_creation_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 30, 100, 20));
         panneau_creation_partie.add(nom_joueur_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 110, -1));
 
         nom_joueur_1.addActionListener(new java.awt.event.ActionListener() {
