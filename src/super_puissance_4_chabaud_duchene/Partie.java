@@ -26,6 +26,14 @@ public class Partie {
     }
     public void initialiserPartie() {
         Random r = new Random();
+        Scanner sc = new Scanner(System.in);
+        
+        for (int i = 1; i<=2;i++) { // Attribution des noms aux joueurs
+            System.out.println("Quel est le nom du joueur " + i);
+            String nom_joueur = sc.nextLine();
+            ListeJoueurs[i-1] = new Joueur(nom_joueur);
+        }
+        this.attribuerCouleursAuxJoueurs();
         
         grille.viderGrille();
         for (int i = 0; i<3;i++) { // placement 3 desintegrateurs
@@ -52,7 +60,7 @@ public class Partie {
                 }                
             }
         }
-        for (int i = 0; i<=41;i++) {
+        /*for (int i = 0; i<=41;i++) {
             if (i < 21) { // attribution de ses 21 jetons au joueur 1
                 joueurCourant = ListeJoueurs[0];
                 String couleur = joueurCourant.couleur;
@@ -65,6 +73,10 @@ public class Partie {
                 joueurCourant.ajouterJeton(ListeJetons[i]);                
             }
             
+        }*/
+        for (int i = 0; i < 21;i++) { // en remplacement des lignes du dessus
+            ListeJoueurs[0].ajouterJeton(new Jeton(joueurCourant.couleur));
+            ListeJoueurs[1].ajouterJeton(new Jeton(joueurCourant.couleur));                        
         }
     }
     public void debuterPartie() {
@@ -72,12 +84,6 @@ public class Partie {
         Random r = new Random();
         boolean victoire = false;
         
-        for (int i = 1; i<=2;i++) { // Attribution des noms aux joueurs
-            System.out.println("Quel est le nom du joueur " + i);
-            String nom_joueur = sc.nextLine();
-            ListeJoueurs[i-1] = new Joueur(nom_joueur);
-        }
-        this.attribuerCouleursAuxJoueurs();
         this.initialiserPartie();
         grille.afficherGrilleSurConsole();
         joueurCourant = ListeJoueurs[r.nextInt(2)];

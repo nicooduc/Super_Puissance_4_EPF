@@ -5,6 +5,9 @@
  */
 package super_puissance_4_chabaud_duchene;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author nykol
@@ -12,8 +15,8 @@ package super_puissance_4_chabaud_duchene;
 public class FenetreDeJeu extends javax.swing.JFrame {
 
     Joueur ListeJoueurs[] = new Joueur[2];
-    Joueur JoueurCourant;
-    Grille grilleJeu = new Grille();
+    Joueur joueurCourant;
+    Grille grille = new Grille();
 
     /**
      * Creates new form FenetreDeJeu
@@ -25,7 +28,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
-                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.cellule[i][j]);
+                CelluleGraphique cellGraph = new CelluleGraphique(grille.cellule[i][j]);
                 panneau_grille.add(cellGraph);
             }
             
@@ -282,6 +285,56 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 new FenetreDeJeu().setVisible(true);
             }
         });
+    }
+    
+    public void initialiserPartie() {
+        Random r = new Random();
+        Scanner sc = new Scanner(System.in);
+        
+        for (int i = 1; i<=2;i++) { // Attribution des noms aux joueurs
+            System.out.println("Quel est le nom du joueur " + i);
+            String nom_joueur = sc.nextLine();
+            ListeJoueurs[i-1] = new Joueur(nom_joueur);
+        }
+        this.attribuerCouleursAuxJoueurs();
+        
+        grille.viderGrille();
+        for (int i = 0; i<3;i++) { // placement 3 desintegrateurs
+            boolean valide = false;
+            while (valide == false) {
+                valide = grille.placerDesintegrateur(r.nextInt(6),r.nextInt(7));
+            }
+        }
+        int desintegrateurNoir1 = r.nextInt(5); // création 2 désintegrateurs placés sur des trou noirs
+        int desintegrateurNoir2;
+        do {
+            desintegrateurNoir2 = r.nextInt(5);
+        } while (desintegrateurNoir2 == desintegrateurNoir1);
+        for (int i = 0; i<5;i++) { // placement 5 trou noirs
+            boolean valide = false;
+            while (valide == false) {
+                int ligne = r.nextInt(6);
+                int colonne = r.nextInt(7);
+                valide = grille.placerTrouNoir(ligne,colonne);
+                if (valide) {
+                    if (i == desintegrateurNoir1 || i == desintegrateurNoir2) { // placement des 2 désintégrateurs associés
+                        grille.placerDesintegrateur(ligne,colonne);
+                    }
+                }                
+            }
+        }
+        for (int i = 0; i < 21;i++) {
+            ListeJoueurs[0].ajouterJeton(new Jeton(joueurCourant.couleur));
+            ListeJoueurs[1].ajouterJeton(new Jeton(joueurCourant.couleur));                        
+        }
+    }
+    
+    public void attribuerCouleursAuxJoueurs() {
+        Random r = new Random();
+        
+        int num = r.nextInt(2); // nombre aléatoire 0 ou 1
+        ListeJoueurs[num].affecterCouleur("rouge");
+        ListeJoueurs[(num+1)%2].affecterCouleur("jaune"); // (num+1)%2 permet de transformer 1 en 0 / 0 en 1
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
