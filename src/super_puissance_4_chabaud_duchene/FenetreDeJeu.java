@@ -6,7 +6,6 @@
 package super_puissance_4_chabaud_duchene;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
@@ -250,6 +249,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_infos_joueurs.setVisible(true);
         panneau_infos_partie.setVisible(true);
+        initialiserPartie();
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**
@@ -289,13 +289,12 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     
     public void initialiserPartie() {
         Random r = new Random();
-        Scanner sc = new Scanner(System.in);
         
-        for (int i = 1; i<=2;i++) { // Attribution des noms aux joueurs
-            System.out.println("Quel est le nom du joueur " + i);
-            String nom_joueur = sc.nextLine();
-            ListeJoueurs[i-1] = new Joueur(nom_joueur);
-        }
+        String nomJoueur1 = nom_joueur_1.getText(); // Attribution des noms aux joueurs
+        ListeJoueurs[0] = new Joueur(nomJoueur1);
+        String nomJoueur2 = nom_joueur_2.getText();
+        ListeJoueurs[1] = new Joueur(nomJoueur2);
+        
         this.attribuerCouleursAuxJoueurs();
         
         grille.viderGrille();
@@ -324,8 +323,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             }
         }
         for (int i = 0; i < 21;i++) {
-            ListeJoueurs[0].ajouterJeton(new Jeton(joueurCourant.couleur));
-            ListeJoueurs[1].ajouterJeton(new Jeton(joueurCourant.couleur));                        
+            ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].couleur));
+            ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].couleur));                        
         }
     }
     
