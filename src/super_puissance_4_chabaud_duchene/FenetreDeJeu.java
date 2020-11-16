@@ -24,13 +24,13 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         panneau_infos_joueurs.setVisible(false);
         panneau_infos_partie.setVisible(false);
-        
+
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grille.cellule[i][j]);
                 panneau_grille.add(cellGraph);
             }
-            
+
         }
     }
 
@@ -64,7 +64,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_nom = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        lbl_j1_nom1 = new javax.swing.JLabel();
+        lbl_j1_nom = new javax.swing.JLabel();
         panneau_infos_partie = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -154,8 +154,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel11.setText("Joueur 1 :");
         panneau_infos_joueurs.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
-        lbl_j1_nom1.setText("NomJoueur1");
-        panneau_infos_joueurs.add(lbl_j1_nom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+        lbl_j1_nom.setText("NomJoueur1");
+        panneau_infos_joueurs.add(lbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 240, 190));
 
@@ -191,19 +191,34 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 btn_col_0ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 96, -1));
 
         btn_col_6.setText("7");
         btn_col_6.setPreferredSize(new java.awt.Dimension(90, 23));
-        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+        btn_col_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(596, 30, 96, -1));
 
         btn_col_5.setText("6");
         btn_col_5.setPreferredSize(new java.awt.Dimension(90, 23));
-        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, -1));
+        btn_col_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 96, -1));
 
         btn_col_4.setText("5");
         btn_col_4.setPreferredSize(new java.awt.Dimension(90, 23));
-        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
+        btn_col_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 30, 96, -1));
 
         btn_col_3.setText("4");
         btn_col_3.setPreferredSize(new java.awt.Dimension(90, 23));
@@ -212,11 +227,16 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 btn_col_3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 30, 96, -1));
 
         btn_col_2.setText("3");
         btn_col_2.setPreferredSize(new java.awt.Dimension(90, 23));
-        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
+        btn_col_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 30, 96, -1));
 
         btn_col_1.setText("2");
         btn_col_1.setPreferredSize(new java.awt.Dimension(90, 23));
@@ -225,7 +245,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 btn_col_1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 30, 96, -1));
 
         setBounds(0, 0, 1046, 704);
     }// </editor-fold>//GEN-END:initComponents
@@ -235,22 +255,77 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_nom_joueur_1ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
-        // TODO add your handling code here:
+        jouerDansColonne(0);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
-        // TODO add your handling code here:
+        jouerDansColonne(1);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
-        // TODO add your handling code here:
+        jouerDansColonne(3);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_infos_joueurs.setVisible(true);
         panneau_infos_partie.setVisible(true);
         initialiserPartie();
+        panneau_grille.repaint();
+        btn_start.setEnabled(false);
     }//GEN-LAST:event_btn_startActionPerformed
+
+    private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
+        jouerDansColonne(2);
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_2ActionPerformed
+
+    private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
+        jouerDansColonne(4);
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_4ActionPerformed
+
+    private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
+        jouerDansColonne(5);
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_5ActionPerformed
+
+    private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
+        jouerDansColonne(6);
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_6ActionPerformed
+
+    public boolean jouerDansColonne(int indiceColonne) {
+        int colonne = indiceColonne;
+        int ligne;
+        ligne = grille.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestant - 1], colonne);
+        if (ligne == -1) {
+            return false;
+        }
+        joueurCourant.nombreJetonsRestant--;
+
+        if (grille.cellule[ligne][colonne].presenceTrouNoir()) { // en cas de présence de trou noir supprime le jeton et le trou noir
+            grille.supprimerJeton(ligne, colonne);
+            grille.cellule[ligne][colonne].activerTrouNoir();
+        }
+        if (grille.cellule[ligne][colonne].presenceDesintegrateur()) { // en cas de présence de desintégrateur supprime le jeton et le désintégrateur
+            grille.cellule[ligne][colonne].recupererDesintegrateur();
+            joueurCourant.nombreDesintegrateur++;
+        }
+        panneau_grille.repaint();
+        return true;
+    }
+
+    public void joueurSuivant() {
+        if (joueurCourant == ListeJoueurs[0]) {
+            joueurCourant = ListeJoueurs[1];
+        } else {
+            joueurCourant = ListeJoueurs[0];
+        }
+        lbl_joueurCourant.setText(joueurCourant.nom);
+    }
 
     /**
      * @param args the command line arguments
@@ -286,22 +361,32 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void initialiserPartie() {
         Random r = new Random();
-        
+
         String nomJoueur1 = nom_joueur_1.getText(); // Attribution des noms aux joueurs
         ListeJoueurs[0] = new Joueur(nomJoueur1);
         String nomJoueur2 = nom_joueur_2.getText();
         ListeJoueurs[1] = new Joueur(nomJoueur2);
-        
+
         this.attribuerCouleursAuxJoueurs();
-        
+
+        lbl_j1_nom.setText(nomJoueur1);
+        lbl_j2_nom.setText(nomJoueur2);
+        lbl_j1_col.setText(ListeJoueurs[0].couleur);
+        lbl_j2_col.setText(ListeJoueurs[1].couleur);
+        lbl_j1_nbDesint.setText(ListeJoueurs[0].nombreDesintegrateur + "");
+        lbl_j2_nbDesint.setText(ListeJoueurs[1].nombreDesintegrateur + "");
+
+        joueurCourant = ListeJoueurs[r.nextInt(2)];
+        lbl_joueurCourant.setText(joueurCourant.nom);
+
         grille.viderGrille();
-        for (int i = 0; i<3;i++) { // placement 3 desintegrateurs
+        for (int i = 0; i < 3; i++) { // placement 3 desintegrateurs
             boolean valide = false;
             while (valide == false) {
-                valide = grille.placerDesintegrateur(r.nextInt(6),r.nextInt(7));
+                valide = grille.placerDesintegrateur(r.nextInt(6), r.nextInt(7));
             }
         }
         int desintegrateurNoir1 = r.nextInt(5); // création 2 désintegrateurs placés sur des trou noirs
@@ -309,31 +394,31 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         do {
             desintegrateurNoir2 = r.nextInt(5);
         } while (desintegrateurNoir2 == desintegrateurNoir1);
-        for (int i = 0; i<5;i++) { // placement 5 trou noirs
+        for (int i = 0; i < 5; i++) { // placement 5 trou noirs
             boolean valide = false;
             while (valide == false) {
                 int ligne = r.nextInt(6);
                 int colonne = r.nextInt(7);
-                valide = grille.placerTrouNoir(ligne,colonne);
+                valide = grille.placerTrouNoir(ligne, colonne);
                 if (valide) {
                     if (i == desintegrateurNoir1 || i == desintegrateurNoir2) { // placement des 2 désintégrateurs associés
-                        grille.placerDesintegrateur(ligne,colonne);
+                        grille.placerDesintegrateur(ligne, colonne);
                     }
-                }                
+                }
             }
         }
-        for (int i = 0; i < 21;i++) {
+        for (int i = 0; i < 21; i++) {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].couleur));
-            ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].couleur));                        
+            ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].couleur));
         }
     }
-    
+
     public void attribuerCouleursAuxJoueurs() {
         Random r = new Random();
-        
+
         int num = r.nextInt(2); // nombre aléatoire 0 ou 1
         ListeJoueurs[num].affecterCouleur("rouge");
-        ListeJoueurs[(num+1)%2].affecterCouleur("jaune"); // (num+1)%2 permet de transformer 1 en 0 / 0 en 1
+        ListeJoueurs[(num + 1) % 2].affecterCouleur("jaune"); // (num+1)%2 permet de transformer 1 en 0 / 0 en 1
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -360,7 +445,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_j1_col;
     private javax.swing.JLabel lbl_j1_nbDesint;
-    private javax.swing.JLabel lbl_j1_nom1;
+    private javax.swing.JLabel lbl_j1_nom;
     private javax.swing.JLabel lbl_j2_col;
     private javax.swing.JLabel lbl_j2_nbDesint;
     private javax.swing.JLabel lbl_j2_nom;
