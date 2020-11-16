@@ -34,6 +34,8 @@ public class Partie {
             ListeJoueurs[i-1] = new Joueur(nom_joueur);
         }
         this.attribuerCouleursAuxJoueurs();
+        joueurCourant = ListeJoueurs[r.nextInt(2)];
+
         
         grille.viderGrille();
         for (int i = 0; i<3;i++) { // placement 3 desintegrateurs
@@ -86,7 +88,6 @@ public class Partie {
         
         this.initialiserPartie();
         grille.afficherGrilleSurConsole();
-        joueurCourant = ListeJoueurs[r.nextInt(2)];
         System.out.println(joueurCourant.nom + " commence");
         
         do { // tour de jeu

@@ -47,6 +47,8 @@ public class Grille {
         for (int i = 0; i<6;i++) { // vide la grille cellule par cellule
             for (int j = 0; j<7;j++) {
                 cellule[i][j].supprimerJeton();
+                cellule[i][j].recupererDesintegrateur();
+                cellule[i][j].activerTrouNoir();
             }
         }
 
