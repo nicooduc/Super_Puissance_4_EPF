@@ -155,4 +155,11 @@ public class Grille {
         cellule[ligne][colonne].supprimerJeton();
         return jeton;
     }
+    public boolean colonneRemplie(int colonne) {
+        if (cellule[5][colonne].recupererJeton() == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
