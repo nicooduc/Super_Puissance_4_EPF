@@ -28,6 +28,50 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grille.cellule[i][j]);
+
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Cellule c = cellGraph.celluleAssociee;
+                        if (c.jetonCourant == null) {
+                            return;
+                        } else if (c.jetonCourant.Couleur.equals(joueurCourant.couleur)) {
+                            textmessage.setText("le joueur " + joueurCourant.nom + " récupère un de ses jetons");
+                            Jeton jrecup = c.recupererJeton();
+                            joueurCourant.ajouterJeton(jrecup);
+                            joueurSuivant();
+                        } else {
+                            if (joueurCourant.nombreDesintegrateur > 0) {
+                                textmessage.setText("le joueur " + joueurCourant.nom + "désintégre un jeton");
+                                c.supprimerJeton();
+                                joueurCourant.utiliserDesintegrateur();
+                                joueurSuivant();
+                            } else {
+                                return;
+                            }
+                        }
+                        grille.tasserGrille();
+                        panneau_grille.repaint();
+                        lbl_j1_nbDesint.setText(ListeJoueurs[0].nombreDesintegrateur + "");
+                        lbl_j2_nbDesint.setText(ListeJoueurs[1].nombreDesintegrateur + "");
+
+                        boolean victoireJ1 = grille.etreGagnantePourJoueur(ListeJoueurs[0]);
+                        boolean victoireJ2 = grille.etreGagnantePourJoueur(ListeJoueurs[1]);
+
+                        if (victoireJ1 && !victoireJ2) {
+                            textmessage.setText("Victoire de " + ListeJoueurs[0].nom);
+                        } else if (victoireJ2 && !victoireJ1) {
+                            textmessage.setText("Victoire de " + ListeJoueurs[1].nom);
+                        } else if (victoireJ1 && victoireJ2) {
+                            if (joueurCourant == ListeJoueurs[0]) {
+                                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + "(Faute de jeu de " + ListeJoueurs[0].nom + ")");
+                            } else {
+                                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + "(Faute de jeu de " + ListeJoueurs[1].nom + ")");
+                            }
+                        }
+
+                    }
+                });
+
                 panneau_grille.add(cellGraph);
             }
 
@@ -336,25 +380,25 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             joueurCourant.nombreDesintegrateur++;
         }
         panneau_grille.repaint();
-        
+
         lbl_j1_nbDesint.setText(ListeJoueurs[0].nombreDesintegrateur + "");
         lbl_j2_nbDesint.setText(ListeJoueurs[1].nombreDesintegrateur + "");
-        
+
         boolean victoireJ1 = grille.etreGagnantePourJoueur(ListeJoueurs[0]);
         boolean victoireJ2 = grille.etreGagnantePourJoueur(ListeJoueurs[1]);
-        
+
         if (victoireJ1 && !victoireJ2) {
             textmessage.setText("Victoire de " + ListeJoueurs[0].nom);
         } else if (victoireJ2 && !victoireJ1) {
             textmessage.setText("Victoire de " + ListeJoueurs[1].nom);
         } else if (victoireJ1 && victoireJ2) {
             if (joueurCourant == ListeJoueurs[0]) {
-                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + "(Faute de jeu de " + ListeJoueurs[0] + ")");
+                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + "(Faute de jeu de " + ListeJoueurs[0].nom + ")");
             } else {
-                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + "(Faute de jeu de " + ListeJoueurs[1] + ")");
+                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + "(Faute de jeu de " + ListeJoueurs[1].nom + ")");
             }
         }
-        
+
         return true;
     }
 

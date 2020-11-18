@@ -159,7 +159,7 @@ public class Partie {
                 } while (!grille.lireCouleurDuJeton(ligne, colonne).equals(joueurCourant.couleur));
                 joueurCourant.nombreJetonsRestant++;
                 grille.recupererJeton(ligne, colonne); // pas de récupération retour ?
-                grille.tasserGrille(ligne, colonne);
+                grille.tasserGrille();
                 int autreJoueur;
                 if (joueurCourant == ListeJoueurs[0]) {
                     autreJoueur = 1;
@@ -198,7 +198,7 @@ public class Partie {
                     } while (grille.celluleOccupee(ligne,colonne) == false);
                 } while (grille.lireCouleurDuJeton(ligne, colonne).equals(joueurCourant.couleur));
                 grille.recupererJeton(ligne, colonne); // pas de récupération retour ?
-                grille.tasserGrille(ligne, colonne);
+                grille.tasserGrille();
                 int autreJoueur;
                 if (joueurCourant == ListeJoueurs[0]) {
                     autreJoueur = 1;
