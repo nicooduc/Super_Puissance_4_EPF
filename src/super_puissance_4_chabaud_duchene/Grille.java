@@ -147,15 +147,13 @@ public class Grille {
         }
     }
     public void tasserColonne(int colonne) {
-        for (int i = 0; i < 7; i++) {
-            if (i == 5) {
-                cellule[i][colonne].jetonCourant = null;
-            } else {
+        for (int i = 0; i < 5; i++) {
+            
                 if (cellule[i][colonne].jetonCourant == null) {
                     cellule[i][colonne].jetonCourant = cellule[i+1][colonne].jetonCourant;
                     cellule[i+1][colonne].jetonCourant = null;
                 }
-            }
+            
         }
     }
     public boolean placerTrouNoir(int ligne, int colonne) {
