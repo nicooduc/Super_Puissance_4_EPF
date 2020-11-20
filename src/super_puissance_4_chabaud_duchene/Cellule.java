@@ -28,8 +28,12 @@ public class Cellule {
         }
         
     }
+    
     public Jeton recupererJeton() {
-        return jetonCourant;
+        Jeton jetonSecond;
+        jetonSecond=jetonCourant;
+        jetonCourant=null;
+        return jetonSecond;
     }
     public boolean supprimerJeton() {
         if (jetonCourant != null) { // vérifie la présence d'un jeton
