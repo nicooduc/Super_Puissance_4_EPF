@@ -153,8 +153,8 @@ public class Grille {
                     cellule[i][colonne].jetonCourant = cellule[i+1][colonne].jetonCourant;
                     cellule[i+1][colonne].jetonCourant = null;
                 }
-            }
-        
+            
+        }
     }
     public boolean placerTrouNoir(int ligne, int colonne) {
         return cellule[ligne][colonne].placerTrouNoir();

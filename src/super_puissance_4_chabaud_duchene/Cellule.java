@@ -28,6 +28,7 @@ public class Cellule {
         }
         
     }
+    
     public Jeton recupererJeton() {
         Jeton jetonSecond;
         jetonSecond=jetonCourant;
