@@ -41,7 +41,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                             joueurSuivant();
                         } else {
                             if (joueurCourant.nombreDesintegrateur > 0) {
-                                textmessage.setText("le joueur " + joueurCourant.nom + "désintégre un jeton");
+                                textmessage.setText("le joueur " + joueurCourant.nom + " désintégre un jeton");
                                 c.supprimerJeton();
                                 joueurCourant.utiliserDesintegrateur();
                                 joueurSuivant();
@@ -63,9 +63,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                             textmessage.setText("Victoire de " + ListeJoueurs[1].nom);
                         } else if (victoireJ1 && victoireJ2) {
                             if (joueurCourant == ListeJoueurs[0]) {
-                                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + "(Faute de jeu de " + ListeJoueurs[0].nom + ")");
+                                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + " (Faute de jeu de " + ListeJoueurs[0].nom + ")");
                             } else {
-                                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + "(Faute de jeu de " + ListeJoueurs[1].nom + ")");
+                                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + " (Faute de jeu de " + ListeJoueurs[1].nom + ")");
                             }
                         }
 
@@ -134,18 +134,18 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_creation_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nom Joueur 2 :");
-        panneau_creation_partie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 76, 100, 20));
+        panneau_creation_partie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 100, 20));
 
         jLabel2.setText("Nom Joueur 1 :");
-        panneau_creation_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 30, 100, 20));
-        panneau_creation_partie.add(nom_joueur_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 110, -1));
+        panneau_creation_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 100, 20));
+        panneau_creation_partie.add(nom_joueur_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 110, -1));
 
         nom_joueur_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom_joueur_1ActionPerformed(evt);
             }
         });
-        panneau_creation_partie.add(nom_joueur_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 110, -1));
+        panneau_creation_partie.add(nom_joueur_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 110, -1));
 
         btn_start.setText("Démarer partie");
         btn_start.addActionListener(new java.awt.event.ActionListener() {
@@ -153,55 +153,55 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 btn_startActionPerformed(evt);
             }
         });
-        panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 113, 130, 50));
+        panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 130, 50));
 
-        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 240, 190));
+        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 290, 190));
 
         panneau_infos_joueurs.setBackground(new java.awt.Color(255, 255, 204));
         panneau_infos_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Joueur 2 :");
-        panneau_infos_joueurs.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        panneau_infos_joueurs.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jLabel5.setText("Desintegrateur :");
-        panneau_infos_joueurs.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        panneau_infos_joueurs.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         lbl_j1_nbDesint.setText("NbDesintJoueur1");
-        panneau_infos_joueurs.add(lbl_j1_nbDesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        panneau_infos_joueurs.add(lbl_j1_nbDesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
 
         jLabel7.setText("Couleur :");
-        panneau_infos_joueurs.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        panneau_infos_joueurs.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         lbl_j1_col.setText("CouleurJoueur1");
-        panneau_infos_joueurs.add(lbl_j1_col, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
-        panneau_infos_joueurs.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 220, 10));
+        panneau_infos_joueurs.add(lbl_j1_col, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+        panneau_infos_joueurs.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 220, 10));
 
         jLabel9.setText("Couleur :");
-        panneau_infos_joueurs.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        panneau_infos_joueurs.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel6.setText("Desintegrateur :");
-        panneau_infos_joueurs.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        panneau_infos_joueurs.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         lbl_j2_nbDesint.setText("NbDesintJoueur2");
-        panneau_infos_joueurs.add(lbl_j2_nbDesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        panneau_infos_joueurs.add(lbl_j2_nbDesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         lbl_j2_col.setText("CouleurJoueur2");
-        panneau_infos_joueurs.add(lbl_j2_col, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+        panneau_infos_joueurs.add(lbl_j2_col, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
         lbl_j2_nom.setText("NomJoueur2");
-        panneau_infos_joueurs.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        panneau_infos_joueurs.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Infos Joueurs");
         panneau_infos_joueurs.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel11.setText("Joueur 1 :");
-        panneau_infos_joueurs.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        panneau_infos_joueurs.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         lbl_j1_nom.setText("NomJoueur1");
-        panneau_infos_joueurs.add(lbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
+        panneau_infos_joueurs.add(lbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
 
-        getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 240, 190));
+        getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 290, 190));
 
         panneau_infos_partie.setBackground(new java.awt.Color(255, 255, 204));
         panneau_infos_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -224,9 +224,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         textmessage.setRequestFocusEnabled(false);
         message.setViewportView(textmessage);
 
-        panneau_infos_partie.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 65, -1, -1));
+        panneau_infos_partie.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 65, 250, -1));
 
-        getContentPane().add(panneau_infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 240, 190));
+        getContentPane().add(panneau_infos_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 290, 190));
 
         btn_col_0.setText("1");
         btn_col_0.setPreferredSize(new java.awt.Dimension(90, 23));
@@ -393,9 +393,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             textmessage.setText("Victoire de " + ListeJoueurs[1].nom);
         } else if (victoireJ1 && victoireJ2) {
             if (joueurCourant == ListeJoueurs[0]) {
-                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + "(Faute de jeu de " + ListeJoueurs[0].nom + ")");
+                textmessage.setText("Victoire de " + ListeJoueurs[1].nom + " (Faute de jeu de " + ListeJoueurs[0].nom + ")");
             } else {
-                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + "(Faute de jeu de " + ListeJoueurs[1].nom + ")");
+                textmessage.setText("Victoire de " + ListeJoueurs[0].nom + " (Faute de jeu de " + ListeJoueurs[1].nom + ")");
             }
         }
 

@@ -26,7 +26,7 @@ public class Grille {
     
     public int ajouterJetonDansColonne(Jeton jeton, int colonne) {
         for (int i = 0; i<6;i++) {
-            if (cellule[i][colonne].recupererJeton() == null) { // récupère la plus basse ligne disponible dans la colonne et y ajoute le jeton
+            if (cellule[i][colonne].jetonCourant== null) { // récupère la plus basse ligne disponible dans la colonne et y ajoute le jeton
                 cellule[i][colonne].affecterJeton(jeton);
                 return i;
             }
@@ -147,7 +147,7 @@ public class Grille {
         }
     }
     public void tasserColonne(int colonne) {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             
                 if (cellule[i][colonne].jetonCourant == null) {
                     cellule[i][colonne].jetonCourant = cellule[i+1][colonne].jetonCourant;
@@ -167,11 +167,11 @@ public class Grille {
     }
     public Jeton recupererJeton(int ligne, int colonne) {
         Jeton jeton = cellule[ligne][colonne].recupererJeton(); // retire le jeton de la case visée
-        cellule[ligne][colonne].supprimerJeton();
+        //cellule[ligne][colonne].supprimerJeton();
         return jeton;
     }
     public boolean colonneRemplie(int colonne) {
-        if (cellule[5][colonne].recupererJeton() == null) {
+        if (cellule[5][colonne].jetonCourant == null) {
             return false;
         } else {
             return true;
