@@ -59,13 +59,17 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
                         if (victoireJ1 && !victoireJ2) {
                             textmessage.setText("Victoire de " + ListeJoueurs[0].nom);
+                            finpartie();
                         } else if (victoireJ2 && !victoireJ1) {
                             textmessage.setText("Victoire de " + ListeJoueurs[1].nom);
+                            finpartie();
                         } else if (victoireJ1 && victoireJ2) {
                             if (joueurCourant == ListeJoueurs[0]) {
                                 textmessage.setText("Victoire de " + ListeJoueurs[1].nom + " (Faute de jeu de " + ListeJoueurs[0].nom + ")");
+                                finpartie();
                             } else {
                                 textmessage.setText("Victoire de " + ListeJoueurs[0].nom + " (Faute de jeu de " + ListeJoueurs[1].nom + ")");
+                                finpartie();
                             }
                         }
 
@@ -298,6 +302,18 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nom_joueur_1ActionPerformed
 
+    public void finpartie() {
+        btn_col_0.setEnabled(false);
+        btn_col_1.setEnabled(false);
+        btn_col_2.setEnabled(false);
+        btn_col_3.setEnabled(false);
+        btn_col_4.setEnabled(false);
+        btn_col_5.setEnabled(false);
+        btn_col_6.setEnabled(false);
+        btn_start.setEnabled(true);
+        System.out.print("test");
+    }
+    
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         jouerDansColonne(0);
         if (grille.colonneRemplie(0)) {
@@ -328,6 +344,13 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         initialiserPartie();
         panneau_grille.repaint();
         btn_start.setEnabled(false);
+        btn_col_0.setEnabled(true);
+        btn_col_1.setEnabled(true);
+        btn_col_2.setEnabled(true);
+        btn_col_3.setEnabled(true);
+        btn_col_4.setEnabled(true);
+        btn_col_5.setEnabled(true);
+        btn_col_6.setEnabled(true);
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
@@ -389,13 +412,17 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         if (victoireJ1 && !victoireJ2) {
             textmessage.setText("Victoire de " + ListeJoueurs[0].nom);
+            finpartie();
         } else if (victoireJ2 && !victoireJ1) {
             textmessage.setText("Victoire de " + ListeJoueurs[1].nom);
+            finpartie();
         } else if (victoireJ1 && victoireJ2) {
             if (joueurCourant == ListeJoueurs[0]) {
                 textmessage.setText("Victoire de " + ListeJoueurs[1].nom + " (Faute de jeu de " + ListeJoueurs[0].nom + ")");
+                finpartie();
             } else {
                 textmessage.setText("Victoire de " + ListeJoueurs[0].nom + " (Faute de jeu de " + ListeJoueurs[1].nom + ")");
+                finpartie();
             }
         }
 
